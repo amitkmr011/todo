@@ -5,18 +5,31 @@ rga = {
     rgname   = "amitrg4"
     location = "east us"
   }
- }
+}
 
-vnet  ={
+vnet = {
 
-  v1={
+  v1 = {
 
-    vnet= "fevnet"
-    subnet ="fnsubnet"
-    address =["10.0.0.0/16"]
+    vnet     = "fevnet"
+    subnet   = "fnsubnet"
+    address  = ["10.0.0.0/16"]
     rgname   = "amitrg3"
     location = "east us"
-    subadd ="10.0.0.1/24"
-    
-  }}
+    subadd   = "10.0.0.1/24"
+
+  }
+}
+
+nsg = {
+
+  nsg1 = {
+
+    nsgname = "fensg"
+    spr     = "80"
+    security_rule="vmsecurityrule"
+  }
+
+}
+
   
