@@ -2,6 +2,8 @@ rga = {
   rg1 = {
     rgname   = "amitrg3"
     location = "east us"
+    rgname   = "amitrg4"
+    location = "east us"
   }
  }
 
