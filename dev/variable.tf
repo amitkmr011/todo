@@ -1,7 +1,5 @@
 variable "rga" {}
 variable "vnet" {}
-variable "nsg" {
-  
-}
-
+variable "nsg" {}
+variable "nic" {}
   

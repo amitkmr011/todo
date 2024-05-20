@@ -16,7 +16,7 @@ vnet = {
     address  = ["10.0.0.0/16"]
     rgname   = "amitrg3"
     location = "east us"
-    subadd   = "10.0.0.1/24"
+    subadd   = "10.0.0.0/24"
 
   }
 }
@@ -30,6 +30,14 @@ nsg = {
     security_rule="vmsecurityrule"
   }
 
+}
+
+nic ={
+
+  nic1={
+
+    nicname="fenic"
+  }
 }
 
   

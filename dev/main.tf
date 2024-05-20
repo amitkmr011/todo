@@ -16,3 +16,10 @@ module "nsg" {
   depends_on = [module.vnet]
 
 }
+
+module "nic" {
+  source = "../modules/NIC"
+  nic    = var.nic
+  depends_on = [ module.vnet,module.nsg ]
+
+}
