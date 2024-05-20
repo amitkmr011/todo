@@ -1,0 +1,4 @@
+variable "rga" {}
+variable "vnet" {}
+
+  
