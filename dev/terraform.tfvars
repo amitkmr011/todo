@@ -25,19 +25,20 @@ nsg = {
 
   nsg1 = {
 
-    nsgname = "fensg"
-    spr     = "80"
-    security_rule="vmsecurityrule"
+    nsgname       = "fensg"
+    spr           = "80"
+    security_rule = "vmsecurityrule"
   }
 
 }
 
-nic ={
+nic = {
 
-  nic1={
+  nic1 = {
 
-    nicname="fenic"
+    nicname = "fenic"
   }
 }
 
-  
+
+pip = ["LBPIP", "BASTIONPIP"]

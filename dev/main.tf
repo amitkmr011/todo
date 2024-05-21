@@ -17,9 +17,17 @@ module "nsg" {
 
 }
 
+
+
+
+
 module "nic" {
   source = "../modules/NIC"
   nic    = var.nic
   depends_on = [ module.vnet,module.nsg ]
 
 }
+ module "pip" {
+ source ="../modules/PUBLIC_IP"
+ pip=var.pip  
+ }
