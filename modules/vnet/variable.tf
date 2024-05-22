@@ -1,1 +1,2 @@
 variable "vnet" {}
+variable "subnet" {}

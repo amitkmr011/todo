@@ -3,7 +3,8 @@ data "azurerm_resource_group" "datarg" {
 
 }
 data "azurerm_subnet" "example" {
-  name                 = "fnsubnet"
+  for_each = var.nic
+  name                 =each.value.subnet
   virtual_network_name = "fevnet"
   resource_group_name  = "amitrg3"
 }
