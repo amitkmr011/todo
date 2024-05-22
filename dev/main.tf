@@ -2,10 +2,12 @@ module "resource_group" {
   source = "../modules/RG"
   rga    = var.rga
 }
-module "vnet" {
+module "vnetsubnet" {
 
   source = "../modules/vnet"
   vnet   = var.vnet
+  subnet = var.subnet
+  depends_on = [ module.resource_group ]
 }
 
 
@@ -13,21 +15,28 @@ module "nsg" {
 
   source     = "../modules/NSG"
   nsg        = var.nsg
-  depends_on = [module.vnet]
+  depends_on = [module.vnetsubnet]
 
 }
-
-
-
 
 
 module "nic" {
   source = "../modules/NIC"
   nic    = var.nic
-  depends_on = [ module.vnet,module.nsg ]
+  depends_on = [ module.vnetsubnet,module.nsg ]
 
 }
  module "pip" {
  source ="../modules/PUBLIC_IP"
  pip=var.pip  
+ depends_on = [ module.nic ,module.nic,module.nsg,module.vnetsubnet]
  }
+
+ module "bastion" {
+source = "../modules/bastion"
+bastion =var.bastion  
+depends_on = [ module.pip, module.vnetsubnet ]
+ }
+ 
+   
+ 

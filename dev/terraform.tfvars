@@ -3,7 +3,7 @@ rga = {
     rgname   = "amitrg3"
     location = "east us"
     rgname   = "amitrg4"
-    location = "east us"
+
   }
 }
 
@@ -12,12 +12,25 @@ vnet = {
   v1 = {
 
     vnet     = "fevnet"
-    subnet   = "fnsubnet"
     address  = ["10.0.0.0/16"]
     rgname   = "amitrg3"
     location = "east us"
-    subadd   = "10.0.0.0/24"
+  }
 
+}
+subnet = {
+
+  s1 = {
+    subnet = "frontend"
+    subadd = "10.0.0.0/24"
+  }
+  s2 = {
+    subnet = "backend"
+    subadd = "10.0.1.0/24"
+  }
+  s3 = {
+    subnet = "AzureBastionSubnet"
+    subadd = "10.0.2.0/24"
   }
 }
 
@@ -37,8 +50,23 @@ nic = {
   nic1 = {
 
     nicname = "fenic"
+    subnet  = "frontend"
+  }
+  nic2 = {
+    nicname = "bcnic"
+    subnet  = "backend"
+  }
+  nic3 = {
+
+    nicname = "fenic2"
+    subnet  = "frontend"
   }
 }
 
 
 pip = ["LBPIP", "BASTIONPIP"]
+
+
+bastion = "Bastion_Host"
+
+
