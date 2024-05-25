@@ -7,7 +7,7 @@ module "vnetsubnet" {
   source = "../modules/vnet"
   vnet   = var.vnet
   subnet = var.subnet
-  depends_on = [ module.resource_group ]
+  depends_on = [module.resource_group]
 }
 
 
@@ -19,7 +19,6 @@ module "nsg" {
 
 }
 
-
 module "nic" {
   source = "../modules/NIC"
   nic    = var.nic
@@ -29,7 +28,7 @@ module "nic" {
  module "pip" {
  source ="../modules/PUBLIC_IP"
  pip=var.pip  
- depends_on = [ module.nic ,module.nic,module.nsg,module.vnetsubnet]
+ depends_on = [ module.nic,module.nsg,module.vnetsubnet]
  }
 
  module "bastion" {
@@ -37,6 +36,11 @@ source = "../modules/bastion"
 bastion =var.bastion  
 depends_on = [ module.pip, module.vnetsubnet ]
  }
+
+module "azurerm_linux_virtual_machine" {
+source = "../modules/VM"
+vms=var.vms
+depends_on = [ module.nic ]
+}
  
-   
  

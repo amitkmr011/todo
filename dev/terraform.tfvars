@@ -69,4 +69,14 @@ pip = ["LBPIP", "BASTIONPIP"]
 
 bastion = "Bastion_Host"
 
+vms={
 
+
+  vm1={
+
+    name ="frontendvm"
+    user ="amitkmr"
+    nic="fenic"
+    subnet="frontend"
+  }
+}
