@@ -6,3 +6,4 @@ variable "pip" {}
 variable "bastion"{}
 variable "subnet" {}
 variable "vms" {} 
+variable "storage" {}

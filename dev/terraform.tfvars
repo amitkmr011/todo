@@ -80,3 +80,12 @@ vms={
     subnet="frontend"
   }
 }
+
+
+storage={
+
+  s1= {
+
+    storage= "amitstorage"
+  }
+}

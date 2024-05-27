@@ -42,5 +42,11 @@ source = "../modules/VM"
 vms=var.vms
 depends_on = [ module.nic ]
 }
+
+module "storage" {
+source ="../modules/storage_account"
+storage=var.storage  
+depends_on = [ module.resource_group,module.azurerm_linux_virtual_machine,module.nic,module.bastion,module.nsg,module.pip,module.vnetsubnet ]
+}
  
  
