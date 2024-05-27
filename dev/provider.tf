@@ -13,3 +13,11 @@ provider "azurerm" {
     }
  
 }
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "amitrg"
+    storage_account_name = "amitstorage12"                   
+    container_name       = "tfstate"                      
+    key                  = "prod.terraform.tfstate"  
+  }
+}
