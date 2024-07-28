@@ -1,12 +1,16 @@
-pool: noni_pool
-trigger: none 
-jobs:
-  - job: terraform 
-    steps:
-    - task: PowerShell@2
-      inputs:
-        targetType: 'inline'
-        script: |
-          # Write your PowerShell commands here.
-          
-          Write-Host "Hello World"
+trigger: none
+pool: mypool
+stages:
+  - stage: 
+    jobs:
+      - job: terraforminit
+        steps:
+        - task: TerraformTaskV4@4
+          inputs:
+            provider: 'azurerm'
+            command: 'init'
+            backendServiceArm: 'Pay-As-You-Go(2500fabb-4e4b-4e73-9899-7c80b34124ed)'
+            backendAzureRmResourceGroupName: 'amitrg'
+            backendAzureRmStorageAccountName: 'amitstorage001'
+            backendAzureRmContainerName: 'cicdcon'
+            backendAzureRmKey: 'terraform.tfstate'
